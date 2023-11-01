@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, #000, #333);
+    font-family: 'Arial', sans-serif;
+}
+
+.circle-container {
+    position: relative;
+    width: 90vw;          /* 50% of the viewport width */
+    height: 90vw;         /* maintain aspect ratio */
+    border-radius: 50%;
+    border: 3vw solid hsl(51, 100%, 50%); /* border width relative to viewport */
+    background: radial-gradient(circle, #333, #000);
+    max-width: 540px;     /* limit maximum width */
+    max-height: 540px;    /* limit maximum height */
+}
+
+
+.active .circle-container {
+    animation: enhancedGlowing 1.5s infinite alternate, rotateGradient 10s infinite linear;
+}
+
+@keyframes enhancedGlowing {
+    0% {
+        box-shadow: 0 0 25px #FFD700, 0 0 50px #FFD700;
+    }
+
+    50% {
+        box-shadow: 0 0 35px #FFD700, 0 0 70px #FFD700;
+    }
+
+    100% {
+        box-shadow: 0 0 50px #FFD700, 0 0 90px #FFD700;
+    }
+}
+
+@keyframes rotateGradient {
+    from {
+        background: radial-gradient(circle, #333, #000);
+    }
+
+    to {
+        background: radial-gradient(circle, #000, #333);
+    }
+}
+
+.active .content h1 {
+    animation: timerGlow 1.5s infinite alternate;
+}
+
+@keyframes timerGlow {
+    0% {
+        text-shadow: 0 0 15px #FFD700;
+    }
+
+    100% {
+        text-shadow: 0 0 25px #FFD700, 0 0 35px #FFD700;
+    }
+}
+
+ .button {
+    background-color: #000;
+    border: 0.2em solid #FFD700; 
+    border-radius: 2em;       
+    color: #FFD700;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1.1em;         
+} 
+
+.button:hover {
+    background-color: #FFD700;
+    color: #000;
+}

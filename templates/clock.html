@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design with Brython</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Include the Brython library -->
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+
+<body class="flex flex-col items-center justify-center" onload="brython();">
+
+    <div class="wrapper max-w-4xl">
+        <div class="flex flex-col pt-20 pb-10 circle-container content items-center justify-center">
+            <div class="text-yellow-300 text-4xl mb-6 content">
+                <h1 id="timer">00</h1>
+            </div>
+            
+            <button class="button absolute bottom-0 mb-8 px-4">START</button>
+        </div>
+    </div>
+
+    <!-- Input to set timer value -->
+    <div id="timerInputSection" class="mb-5 flex flex-col justify-center items-center gap-4 mt-8">
+        <label for="timerInput" class="mr-3 text-white ">Set Timer (seconds):</label>
+        <div class="flex">
+            <input type="number" id="timerInput" value="00" class="mr-3 p-2 w-16 text-center font-sans">
+            <select id="timeUnit" class="mr-3 p-2">
+                <option value="seconds">Seconds</option>
+                <option value="minutes">Minutes</option>
+                <option value="hours">Hours</option>
+            </select>
+            <button id="setTimerValue" class="p-2 rounded border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black">Set Timer</button>
+        </div>
+    </div>
+    
+    <!-- <script type="text/python" src="script.py"></script> -->
+    <script type="text/python" src="{{ url_for('static', filename='script.py') }}"></script>
+
+
+</body>
+
+</html>
